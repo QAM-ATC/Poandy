@@ -9,7 +9,7 @@ class AccountController(Controller):
         response = RequestSender.send(url, cls._headers, RequestType.GET)
 
         return (
-            response.json(
+            response.json()
             if response.status_code == 200
             else response.raise_for_status()
         )

@@ -5,7 +5,7 @@ _libgcc_mutex=0.1=conda_forge
 _openmp_mutex=4.5=1_gnu
 appdirs=1.4.3=py_1
 argon2-cffi=20.1.0=py38h1e0a361_1
-asgiref=3.2.10=pypi_0
+asgiref=3.2.10
 attrs=20.2.0=pyh9f0ad1d_0
 backcall=0.2.0=pyh9f0ad1d_0
 backports=1.0=py_2
@@ -25,7 +25,7 @@ cryptography=3.1=py38h766eaa4_0
 dataclasses=0.7=py38_0
 decorator=4.4.2=py_0
 defusedxml=0.6.0=py_0
-django=3.1.1=pypi_0
+django=3.1.1
 entrypoints=0.3=py38h32f6830_1001
 flake8=3.8.3=py_1
 gcc_impl_linux-64=9.3.0=ha2fd2e4_16
@@ -33,7 +33,6 @@ gcc_linux-64=9.3.0=h44160b2_27
 gfortran_impl_linux-64=9.3.0=hde52e87_16
 gfortran_linux-64=9.3.0=ha9dd585_27
 idna=2.10=pyh9f0ad1d_0
-image=1.5.32=pypi_0
 importlib-metadata=1.7.0=py38h32f6830_0
 importlib_metadata=1.7.0=0
 ipykernel=5.3.4=py38h23f93f0_0
@@ -69,7 +68,7 @@ parso=0.5.2=py_0
 pathspec=0.8.0=pyh9f0ad1d_0
 pexpect=4.8.0=py38h32f6830_1
 pickleshare=0.7.5=py38h32f6830_1001
-pillow=7.2.0=pypi_0
+pillow=7.2.0
 pip=20.2.2=py_0
 prometheus_client=0.8.0=pyh9f0ad1d_0
 prompt-toolkit=3.0.7=py_0
@@ -85,7 +84,7 @@ pysocks=1.7.1=py38h32f6830_1
 python=3.8.5=h1103e12_7_cpython
 python-dateutil=2.8.1=py_0
 python_abi=3.8=1_cp38
-pytz=2020.1=pypi_0
+pytz=2020.1
 pyzmq=19.0.2=py38ha71036d_0
 readline=8.0=he28a2e2_2
 regex=2020.9.27=py38h1e0a361_0
@@ -94,7 +93,7 @@ send2trash=1.5.0=py_0
 setuptools=49.6.0=py38h32f6830_0
 six=1.15.0=pyh9f0ad1d_0
 sqlite=3.33.0=h4cf870e_0
-sqlparse=0.3.1=pypi_0
+sqlparse=0.3.1
 sysroot_linux-64=2.12=h77966d4_13
 terminado=0.8.3=py38h32f6830_1
 testpath=0.4.4=py_0
@@ -105,7 +104,6 @@ traitlets=5.0.4=py_0
 typed-ast=1.4.1=py38h516909a_0
 typing_extensions=3.7.4.2=py_0
 urllib3=1.25.10=py_0
-vc=2018.7.10=pypi_0
 wcwidth=0.2.5=pyh9f0ad1d_1
 webencodings=0.5.1=py_1
 wheel=0.35.1=pyh9f0ad1d_0

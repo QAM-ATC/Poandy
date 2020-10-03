@@ -38,13 +38,31 @@ Simple Python wrapper for Oanda (https://developer.oanda.com/rest-live-v20/intro
     ```
 
 ## Linter
-
+    
 Use flake8 without line length limit.
 If using vscode, include the following in settings.json
 
     ```
     "python.linting.flake8Args": ["--max-line-length=200"]
     ```
+
+## Formatter 
+***Black*** is the default code formatter.
+Make sure ***Black*** is installed by running 
+
+```
+conda install --file requirements.txt
+```
+
+If you're using vscode, include the following settings in your setting.json
+ 
+ ```
+ "python.formatting.provider": "black",
+ "editor.formatOnSave" : true,
+ "editor.defaultFormatter": null
+ ```
+
+Vscode should now automatically format your code based on ***Black*** style guide whenever you hit save.
 
 ## Test
 

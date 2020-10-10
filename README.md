@@ -15,46 +15,44 @@ Simple Python wrapper for Oanda (https://developer.oanda.com/rest-live-v20/intro
     }
     ```
 
-2. Setup virtual environment, activate and install neccessary dependencies. 
+2. Setup virtual environment, activate and install neccessary dependencies. For Windows and Linux, the requirements files are at `requirements/win-64.txt` and `requirements/linux-64.txt` respectively.
 
     ```
     # Open Anaconda Prompt as Administrator, create virtual environment and install dependencies.
-    conda create -n poandy python=3.8.5 --file requirements.txt
+    conda create -n poandy python=3.8.5 --file <REQUIREMENTS_FILENAME>
     # activate virtual environment (activation required everytime before working on repo)
     conda activate poandy
     # when done
     conda deactivate
     ```
 
-3. [For development only] If you install other packages, please add them to `requirements.txt` and `environment.yml`.
+3. [For development only] If you install other packages, please add them to the requirements files.
 
     ```
     # navigate to Poandy directory and activate poandy venv first.
 
     # To update requirements.txt
-    conda list -e > requirements.txt
+    conda list -e > <REQUIREMENTS_FILENAME>
     # To update environment.yml (optional)
     conda env export > environment.yml
     ```
 
 ## Linter
     
-Use flake8 without line length limit.
-If using vscode, include the following in settings.json
+Use flake8 without line length limit. If using vscode, include the following in settings.json.
 
     ```
     "python.linting.flake8Args": ["--max-line-length=200"]
     ```
 
 ## Formatter 
-***Black*** is the default code formatter.
-Make sure ***Black*** is installed by running 
-
+Black is the default code formatter. To format all files in the directory, run the following command on the command prompt.
 ```
-conda install --file requirements.txt
+cd poandy
+black .
 ```
 
-If you're using vscode, include the following settings in your setting.json
+If using vscode, include the following settings in your settings.json file.
  
  ```
  "python.formatting.provider": "black",
@@ -62,7 +60,7 @@ If you're using vscode, include the following settings in your setting.json
  "editor.defaultFormatter": null
  ```
 
-Vscode should now automatically format your code based on ***Black*** style guide whenever you hit save.
+Vscode should now automatically format your code based on Black style guide whenever you hit save.
 
 ## Test
 

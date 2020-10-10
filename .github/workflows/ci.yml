@@ -21,5 +21,8 @@ jobs:
           python-version: 3.8.5
           conda-channels: anaconda, conda-forge
     
-      - run: conda --version 
-      - run: which python
+      - name: Test with Pytest
+        run: python -m pytest 
+    
+      - name: Ensure code is formatted with Black
+        run: python -m black .

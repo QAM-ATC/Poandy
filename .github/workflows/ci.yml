@@ -14,23 +14,34 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-    #   - uses: actions/cache@v2
+      - uses: actions/cache@v2
+        env:
+          CACHE_NUMBER: 0
+        with:
+          path: ~/conda_pkgs_dir
+          key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('requirements/linux-64.txt') }}
 
       - name: Set up conda
         uses: conda-incubator/setup-miniconda@v1
         with: 
+          auto-update-conda: true
           activate-environment: poandy
           python-version: 3.8.5
-          channels: anaconda, conda-forge
-          channel-priority: flexible
+          channels: conda-forge, defaults
+          channel-priority: true
           environment-file: requirements/linux-64.txt
           use-only-tar-bz2: true
+
+      - shell: bash -l {0}
+        run: |
+          conda info
+          conda list
     
     #   - name: Install dependencies
     #     run: conda create -n poandy python=3.8.5 --file requirements/linux-64.txt
 
-      - name: Activate virtual environment
-        run: conda activate poandy
+    #   - name: Activate virtual environment
+    #     run: conda activate poandy
 
       - name: Test with Pytest
         run: python -m pytest 
@@ -38,5 +49,5 @@ jobs:
       - name: Ensure code is formatted with Black
         run: python -m black .
 
-      - name: Deactivate virtual environment
-        run: conda deactivate poandy
+    #   - name: Deactivate virtual environment
+    #     run: conda deactivate poandy

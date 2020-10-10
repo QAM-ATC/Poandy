@@ -4,6 +4,7 @@ from poandy.controller.base import Controller
 import pandas as pd
 from dateutil.parser import isoparse
 
+
 class InstrumentController(Controller):
     @classmethod
     def get_candles(cls, instrument_name, candle_params={}, df=True):

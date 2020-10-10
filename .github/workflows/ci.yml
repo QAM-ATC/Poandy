@@ -44,10 +44,10 @@ jobs:
     #     run: conda activate poandy
 
       - name: Test with Pytest
-        run: python -m pytest 
+        run: conda run -n poandy python -m pytest 
     
       - name: Ensure code is formatted with Black
-        run: python -m black .
+        run: conda run -n poandy python -m black .
 
     #   - name: Deactivate virtual environment
     #     run: conda deactivate poandy

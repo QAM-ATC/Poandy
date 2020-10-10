@@ -22,7 +22,6 @@ class RequestSender(Objectless):
 
 
 class ParamsBuilder:
-
     def __init__(self):
         self._d = {}
 

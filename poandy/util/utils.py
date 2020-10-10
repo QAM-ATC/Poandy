@@ -43,4 +43,6 @@ class Utils(Objectless):
 
     @classmethod
     def get_ISO_datetime(cls, timestamp):
-        return datetime.datetime.fromtimestamp(timestamp, datetime.timezone.utc).isoformat()
+        return datetime.datetime.fromtimestamp(
+            timestamp, datetime.timezone.utc
+        ).isoformat()

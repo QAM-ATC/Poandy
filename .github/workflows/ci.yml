@@ -1,0 +1,25 @@
+name: CI
+
+# triggers upon push/pull request for the master branch
+on:
+  push:
+    branches: [ master, feature/ci ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Conda
+        uses: s-weigand/setup-conda@v1
+        with:
+          update-conda: true
+          python-version: 3.8.5
+          conda-channels: anaconda, conda-forge
+    
+      - run: conda --version 
+      - run: which python

@@ -2,8 +2,7 @@ from poandy.util.request import RequestSender, RequestType
 from poandy.controller.base import Controller
 
 import pandas as pd
-from datetime import datetime
-
+from dateutil.parser import isoparse
 
 class InstrumentController(Controller):
     @classmethod
@@ -53,7 +52,7 @@ class InstrumentController(Controller):
                 return orderbook
             # orderbook['time'] is UTC time, so it is consistent with the time given in the candles
             # there is also orderbook['unixTime'], but it seems like it's Singapore time UTC+8
-            orderbook["time"] = datetime.fromisoformat(orderbook["time"][:-1])
+            orderbook["time"] = isoparse(orderbook["time"][:-1])
             orderbook["price"] = float(orderbook["price"])
             orderbook["bucketWidth"] = float(orderbook["bucketWidth"])
             orderbook["buckets"] = pd.DataFrame(orderbook["buckets"]).astype(float)
@@ -78,7 +77,7 @@ class InstrumentController(Controller):
             positionbook = response.json()["positionBook"]
             if not df:
                 return positionbook
-            positionbook["time"] = datetime.fromisoformat(positionbook["time"][:-1])
+            positionbook["time"] = isoparse(positionbook["time"][:-1])
             positionbook["price"] = float(positionbook["price"])
             positionbook["bucketWidth"] = float(positionbook["bucketWidth"])
             positionbook["buckets"] = pd.DataFrame(positionbook["buckets"]).astype(

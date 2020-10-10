@@ -14,15 +14,29 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Conda
-        uses: s-weigand/setup-conda@v1
-        with:
-          update-conda: true
+      - uses: actions/cache@v2
+
+      - name: Set up conda
+        uses: conda-incubator/setup-miniconda@v1
+        with: 
+          activate-environment: poandy
           python-version: 3.8.5
-          conda-channels: anaconda, conda-forge
+          channels: anaconda, conda-forge
+          channel-priority: flexible
+          environment-file: requirements/linux-64.txt
+          use-only-tar-bz2: true
     
+    #   - name: Install dependencies
+    #     run: conda create -n poandy python=3.8.5 --file requirements/linux-64.txt
+
+      - name: Activate virtual environment
+        run: conda activate poandy
+
       - name: Test with Pytest
         run: python -m pytest 
     
       - name: Ensure code is formatted with Black
         run: python -m black .
+
+      - name: Deactivate virtual environment
+        run: conda deactivate poandy

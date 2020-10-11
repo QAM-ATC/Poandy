@@ -3,7 +3,7 @@ name: CI
 # triggers upon push/pull request for the master branch
 on:
   push:
-    branches: [ master, feature/ci ]
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -37,7 +37,7 @@ jobs:
           use-only-tar-bz2: true
 
       - name: Ensure code has been formatted with Black
-        run: conda run -n poandy python -m black .
+        run: conda run -n poandy python -m black . --check
 
       - name: Run automated tests with PyTest
         run: conda run -n poandy python -m pytest

@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -17,7 +17,7 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: ~/conda_pkgs_dir
-          key: ${{ runner.os }}-conda-${{ hashFiles('requirements/win-64.txt') }}
+          key: ${{ runner.os }}-conda-${{ hashFiles('requirements/linux-64.txt') }}
 
       - name: Write the secrets.json file 
         uses: RollyPeres/base64-to-path@v1
@@ -33,7 +33,7 @@ jobs:
           python-version: 3.8.5
           channels: conda-forge, defaults
           channel-priority: true
-          environment-file: requirements/win-64.txt
+          environment-file: requirements/linux-64.txt
           use-only-tar-bz2: true
 
       # - shell: bash -l {0}

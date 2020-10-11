@@ -22,7 +22,7 @@ jobs:
       - name: Write the secrets.json file 
         uses: RollyPeres/base64-to-path@v1
         with:
-          filename: ${{ github.workspace }}/secrets.json
+          filePath: ${{ github.workspace }}/secrets.json
           encodedString: ${{ secrets.SECRETS_BASE64_FILE }}
 
       - name: Set up Conda and activate virtual environment

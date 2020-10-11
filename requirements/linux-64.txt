@@ -112,5 +112,3 @@ xz=5.2.5=h516909a_1
 zeromq=4.3.2=he1b5a44_3
 zipp=3.1.0=py_0
 zlib=1.2.11=h516909a_1009
-numpy=1.19.1=py38h72c728b_0
-pandas=1.1.1=py38h7ae7562_0

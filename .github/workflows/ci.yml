@@ -36,22 +36,8 @@ jobs:
           environment-file: requirements/linux-64.txt
           use-only-tar-bz2: true
 
-      # - shell: bash -l {0}
-      #   run: |
-      #     conda info
-      #     conda list
-    
-    #   - name: Install dependencies
-    #     run: conda create -n poandy python=3.8.5 --file requirements/linux-64.txt
-
-    #   - name: Activate virtual environment
-    #     run: conda activate poandy
-
-      - name: Run automated tests with PyTest
-        run: conda run -n poandy python -m pytest 
-    
       - name: Ensure code has been formatted with Black
         run: conda run -n poandy python -m black .
 
-    #   - name: Deactivate virtual environment
-    #     run: conda deactivate poandy
+      - name: Run automated tests with PyTest
+        run: conda run -n poandy python -m pytest

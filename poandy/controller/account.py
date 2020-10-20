@@ -53,7 +53,6 @@ class AccountController(Controller):
         else:
             return [instrument["name"] for instrument in response.json()["instruments"]]
 
-    # TODO: Somehow "since_transaction_id" needs to be 3. Oanda bug?
     @classmethod
     def get_account_changes(cls, account_id, since_transaction_id=None):
         url = f"{cls._config['base_url']}/v3/accounts/{account_id}/changes"

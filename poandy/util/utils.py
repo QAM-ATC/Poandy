@@ -38,8 +38,12 @@ class Utils(Objectless):
         return headers
 
     @classmethod
-    def get_unix_timestamp(cls):
-        return datetime.datetime.now(datetime.timezone.utc).timestamp()
+    def get_unix_timestamp(cls, date_str="NOW"):
+        # date_str must be "YYYY-mm-d HH:MM:SS" or "NOW"
+        if date_str == "NOW":
+            return datetime.datetime.now(datetime.timezone.utc).timestamp()
+        date = datetime.datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
+        return date.replace(tzinfo=datetime.timezone.utc).timestamp()
 
     @classmethod
     def get_ISO_datetime(cls, timestamp):

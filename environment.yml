@@ -1,0 +1,11 @@
+name: myenv
+channels:
+  - abinit
+  - matsci
+  - conda-forge
+  - defaults
+dependencies:
+  - pandas
+  - pytest
+  - black
+  - requests

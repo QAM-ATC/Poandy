@@ -17,7 +17,11 @@ conda activate poandy
 conda deactivate
 ```
 
-3. [DEVELOPMENT] If you want to install new packages, please add it to the `environment.yml` file.
+## Development
+
+### Downloading new packages
+
+If you want to install new packages, please add it to the `environment.yml` file.
 
 ```
 # activate virtual environment first
@@ -28,36 +32,32 @@ conda install <PACKAGE_NAME>
 conda env export --from-history > environment.yml
 ```
 
-## Linter
+## Running tests
 
-Use flake8 without line length limit. If using VSCode, include the following in settings.json.
+```
+cd poandy
+pytest
+```
+
+## Linting
+
+Use `flake8` without line length limit. If using VS Code, include the following in settings.json.
 
 ```
 "python.linting.flake8Args": ["--max-line-length=200"]
 ```
 
-## Formatter
-
-Black is the default code formatter. To format all files in the directory, run the following command on the command prompt.
+## Formatting
 
 ```
 cd poandy
 black .
 ```
 
-If using VS Code, include the following settings in your settings.json file.
+If using VS Code, include the following in settings.json.
 
 ```
 "python.formatting.provider": "black",
 "editor.formatOnSave" : true,
 "editor.defaultFormatter": null
-```
-
-VSCode should now automatically format your code based on Black style guide whenever you hit save.
-
-## Tests
-
-```
-cd poandy
-pytest
 ```

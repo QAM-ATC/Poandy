@@ -1,67 +1,63 @@
 # Poandy
 
-Simple Python wrapper for Oanda (https://developer.oanda.com/rest-live-v20/introduction/).
+A simple Python wrapper for [OANDA v20 API](https://developer.oanda.com/rest-live-v20/introduction/).
 
 ## Setup
 
-1. Create neccessary files.
+1. Rename the file `secrets.example.json` to `secrets.json`, then change the value of `token` to your own OANDA v20 API key.
 
-    ```
-    # navigate to Poandy directory
-    cd poandy
-    # create a file called "secrets.json". It should contain your oanda api key. E.g.
-    {
-        "token": "7851c27f3bb2bc0f39g3c6d6a3c6b42509e-4015643c1a6ca4651b0c6bd836bc8b8"
-    }
-    ```
+2. Set up a virtual environment and install dependencies with Anaconda.
 
-2. Setup virtual environment, activate and install neccessary dependencies. For Windows and Linux, the requirements files are at `requirements/win-64.txt` and `requirements/linux-64.txt` respectively.
+```
+# create virtual environment and install dependencies in environment.yml
+conda env create --file environment.yml
+# activate virtual environment
+conda activate poandy
+# when done
+conda deactivate
+```
 
-    ```
-    # Open Anaconda Prompt as Administrator, create virtual environment and install dependencies.
-    conda create -n poandy python=3.8.5 --file <REQUIREMENTS_FILENAME>
-    # activate virtual environment (activation required everytime before working on repo)
-    conda activate poandy
-    # when done
-    conda deactivate
-    ```
+## Development
 
-3. [For development only] If you install other packages, please add them to the requirements files.
+### Downloading new packages
 
-    ```
-    # navigate to Poandy directory and activate poandy venv first.
+If you want to install new packages, please add it to the `environment.yml` file.
 
-    # To update requirements.txt
-    conda list -e > <REQUIREMENTS_FILENAME>
-    # To update environment.yml (optional)
-    conda env export > environment.yml
-    ```
+```
+# activate virtual environment first
+conda activate poandy
+# install the packages you want
+conda install <PACKAGE_NAME>
+# update environment.yml
+conda env export --from-history > environment.yml
+```
 
-## Linter
-    
-Use flake8 without line length limit. If using vscode, include the following in settings.json.
+## Running tests
 
-    ```
-    "python.linting.flake8Args": ["--max-line-length=200"]
-    ```
+```
+cd poandy
+pytest
+```
 
-## Formatter 
-Black is the default code formatter. To format all files in the directory, run the following command on the command prompt.
+## Linting
+
+Use `flake8` without line length limit. If using VS Code, include the following in settings.json.
+
+```
+"python.linting.flake8Args": ["--max-line-length=200"]
+```
+
+## Formatting
+
 ```
 cd poandy
 black .
 ```
 
-If using vscode, include the following settings in your settings.json file.
- 
- ```
- "python.formatting.provider": "black",
- "editor.formatOnSave" : true,
- "editor.defaultFormatter": null
- ```
+If using VS Code, include the following in settings.json.
 
-Vscode should now automatically format your code based on Black style guide whenever you hit save.
-
-## Test
-
-    pytest
+```
+"python.formatting.provider": "black",
+"editor.formatOnSave" : true,
+"editor.defaultFormatter": null
+```
